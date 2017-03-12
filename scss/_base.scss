@@ -1,0 +1,120 @@
+/**********************************
+********** Base Styles ************
+**********************************/
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+div#calendar {
+  display: block;
+  box-shadow: 1px 2px 3px transparentize($black, .3);
+}
+
+td {
+  cursor: pointer;
+  &:hover {
+    background: lighten($th-color, 15%);
+  }
+}
+
+span#prev-month, span#next-month {
+  display: inline-block;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+span#prev-month {
+  float: left;
+  padding-left: 20px;
+}
+span#next-month {
+  float: right;
+  padding-right: 20px;
+}
+span.today {
+  position: relative;
+  display: block;
+  // background: lighten($th-color, 10%);
+  height: 40px;
+  width: 40px;
+  &:after {
+    content: 'TODAY';
+    font-size: 10px;
+    display: block;
+  }
+}
+
+table.calendar {
+  border-spacing: 0;
+  thead {
+    tr:first-child {
+      th {
+
+        height: 40px;
+        background-color: $th-color;
+        color: $white;
+        .month-year {
+          font-size: 20px;
+          cursor: default;
+        }
+      }
+    }
+    tr.weekdays {
+      td {
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        background: lighten($th-color, 20%);
+        color: $white;
+        border-bottom: 1px solid $white;
+        cursor: default;
+        &:nth-child(6), &:nth-child(7) {
+          background: lighten($th-color, 15%);
+          color: $white;
+          // &:hover {
+          //   background: lighten($th-color, 20%);
+          // }
+        }
+      }
+    }
+  }
+  tbody {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    tr {
+
+      td {
+        color: $white;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        background: linear-gradient(-45deg, lighten($th-color, 20%), lighten($th-color, 30%));
+        // background: lighten($th-color, 20%);
+        &:nth-child(6), &:nth-child(7) {
+          background: linear-gradient(-45deg, lighten($th-color, 15%), lighten($th-color, 22.5%));
+          color: $white;
+          &:hover {
+            background: lighten($th-color, 20%);
+          }
+        }
+        &:hover {
+          background: lighten($th-color, 15%);
+        }
+      }
+    }
+  }
+}
