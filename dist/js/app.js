@@ -197,8 +197,33 @@ document.querySelector('input[name="datepicker"]').addEventListener('click', fun
 
 document.querySelector('input[type="submit"]').addEventListener('click', function (e) {
   e.preventDefault();
+  var textNode = '';
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-  console.log(e.target);
+  try {
+    for (var _iterator = Object.keys(e.target.form)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var item = _step.value;
+
+      textNode += e.target.form[item].name + ' ' + e.target.form[item].value + '\n';
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
+  alert(textNode);
 });
 
 // module.exports = new DatePicker();

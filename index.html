@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=10;IE=Edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="css/app.min.css">
     <title>Date Picker</title>
   </head>
@@ -10,7 +12,7 @@
       <form class="" action="index.html" method="post">
         <h2>Book your Holiday</h2>
         <label for="destination" hidden>Destination</label>
-        <select id="destination" name="destination">
+        <select id="destination" name="destination" required>
           <option selected disabled hidden>Destination</option>
           <option value="Cornwall">Cornwall</option>
           <option value="Derbyshire">Derbyshire</option>
@@ -23,10 +25,10 @@
           <option value="Scottish Islands">Scottish Islands</option>
         </select>
         <label for="datepicker" hidden>From</label>
-        <input id="datepicker" type="text" name="datepicker" value="" placeholder="From" />
+        <input id="datepicker" type="text" name="datepicker" value="" placeholder="From" required/>
         <div id="calendar"></div>
         <label for="duration" hidden>Duration</label>
-        <select id="duration" name="duration">
+        <select id="duration" name="duration" required>
           <option selected disabled hidden>Duration</option>
           <option value="1">1 Nights</option>
           <option value="2">2 Nights</option>
@@ -44,7 +46,7 @@
           <option value="14">14 Nights</option>
         </select>
         <label for="adults" hidden>Adults</label>
-        <select id="adults" name="adults">
+        <select id="adults" name="adults" required>
           <option selected disabled hidden>Adults</option>
           <option value="1">1 Adults</option>
           <option value="2">2 Adults</option>
@@ -64,7 +66,7 @@
           <option value="16">16 Adults</option>
         </select>
         <label for="children" hidden>Children</label>
-        <select id="children" name="children">
+        <select id="children" name="children" required>
           <option selected disabled hidden>Children</option>
           <option value="1">1 Children</option>
           <option value="2">2 Children</option>
@@ -84,7 +86,7 @@
           <option value="16">16 Children</option>
         </select>
         <label for="submit" hidden>Submit</label>
-        <input type="submit" id="submit" name="submit" placeholder="SEARCH">
+        <input type="submit" id="submit" />
       </form>
 
     </div>

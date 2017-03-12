@@ -191,8 +191,11 @@ document.querySelector('input[name="datepicker"]').addEventListener('click', fun
 
 document.querySelector('input[type="submit"]').addEventListener('click', function(e) {
   e.preventDefault();
-
-  console.log(e.target);
+  let textNode = '';
+  for (const item of Object.keys(e.target.form)) {
+    textNode += e.target.form[item].name + ' ' + e.target.form[item].value + '\n';
+  }
+  alert(textNode);
 });
 
 

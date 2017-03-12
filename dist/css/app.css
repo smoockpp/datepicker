@@ -105,13 +105,16 @@ form {
     font-weight: normal;
     color: #4d4d4d; }
   form #destination, form #datepicker, form #duration {
+    background-color: #fff;
     display: block;
     width: 100%;
     border-radius: 5px;
     height: 40px;
     border: none;
-    margin: 1em auto; }
+    margin: 1em auto;
+    color: #4d4d4d; }
   form #adults, form #children {
+    background-color: #fff;
     float: left;
     border-radius: 5px;
     width: 47.5%;
@@ -126,14 +129,26 @@ form {
       display: table;
       clear: both; }
   form input[placeholder="From"] {
-    text-indent: 5px; }
+    text-indent: 5px;
+    background-color: #fff;
+    color: #4d4d4d; }
+  form option {
+    color: #4d4d4d; }
+  form select {
+    color: #4d4d4d; }
   form input[type="submit"] {
-    width: 50%;
     display: block;
+    margin: 1em auto;
+    cursor: pointer;
+    width: 50%;
     height: 40px;
     background-color: #fff;
     border: none;
     border-radius: 5px;
-    margin: 1em auto; }
+    font-weight: bold;
+    color: #4d4d4d; }
+    form input[type="submit"]:hover {
+      background-color: #e6e6e6;
+      border: 1px solid #cccccc; }
 
 /*# sourceMappingURL=app.css.map */
