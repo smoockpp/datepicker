@@ -14,7 +14,7 @@ class DatePicker {
     this.days = [
       'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'
     ];
-    // creating new Date and passing current month, current year and first day of the month as arguments
+    // creating new Date and passing month, year and first day of the month as arguments
     this.today = new Date(year, month, firstDay);
     // arrow function that returns how many days each month have
     this.numberDays = () => {
@@ -27,60 +27,62 @@ class DatePicker {
       // else returns for non leap year
       return [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     };
+    // Current month returned as Integer
     this.monthNum = new Date(this.today).getMonth();
-    // Current year
+    // Current year returned as integer
     this.year = new Date(this.today).getFullYear();
     // Current month in String
     this.month = this.months[new Date(this.today).getMonth()];
-    // Current day from the week
+    // setting first day of the weeek to be Monday
     this.firstDayOfWeek = this.today.getDay() === 0 ? 7 : this.today.getDay();
-    // Number of days in current month
+    // Number of days in  month
     this.numberDaysInMonth = this.numberDays()[new Date(this.today).getMonth()];
     // Current date
     this.dayDate = new Date().getDate();
+    // html template for rendering the UI
     this.html = ``;
+    // state of the datepicker opened/closed
     this.state = false;
+    // returning string in format DD/MM/YYYY
     this.pickerValue = '';
   }
   // Methods
+  // function to change UI and properties for prev month
   prevMonth() {
+    // clear UI
     this.clearUI();
+    // if statement to make sure monthNum is not less than 0 while changing months to prev
     if (this.monthNum === 0) {
       this.monthNum = 12;
       this.year--;
     }
     this.today = new Date(this.year,this.monthNum-1, 1);
-    console.log(this.monthNum);
     this.monthNum = new Date(this.today).getMonth();
-    // Current month in String
     this.month = this.months[new Date(this.today).getMonth()];
-    // Current day from the week
     this.firstDayOfWeek = this.today.getDay() === 0 ? 7 : this.today.getDay();
-    // Number of days in current month
     this.numberDaysInMonth = this.numberDays()[new Date(this.today).getMonth()];
-    // Current new Date()
+    // Init UI with new month
     this.init();
   }
+  // function to change UI and properties for next month
   nextMonth() {
     this.clearUI();
     this.today = new Date(this.year,this.monthNum+1, 1);
     this.monthNum = new Date(this.today).getMonth();
+    // if statement to check whether monthNum hits last month and than set again to 0
     if (this.monthNum % 12 === 0 ) {
       this.monthNum = 0;
       this.year++;
     }
-
-    // Current month in String
     this.month = this.months[new Date(this.today).getMonth()];
-    // Current day from the week
     this.firstDayOfWeek = this.today.getDay() === 0 ? 7 : this.today.getDay();
-    // Number of days in current month
     this.numberDaysInMonth = this.numberDays()[new Date(this.today).getMonth()];
-    // Current new Date()
+    // Init UI with new month
     this.init();
   }
-  // Method to initialize UI
+  // Method to create the HTML template and initialize UI
   init() {
+    // check if state is false and than initialize UI
     if ( this.state === false ) {
       let weekDaysTd = () => {
         let html = ``;
@@ -143,6 +145,7 @@ class DatePicker {
       `;
       this.state = true;
       const tds = document.querySelectorAll('tbody tr td');
+      // arrow function that checks if monthNum is < 10 and if it is add 0 to the beggining of the string
       const monthToPass = () => {
         let month = this.monthNum + 1;
         if (month === 10 || month === 11 || month === 12) {
@@ -152,23 +155,25 @@ class DatePicker {
         }
       }
       const yearToPass = this.year;
+      // adding click listener to each TD
       for (let i = 0; i < tds.length; i++) {
         tds[i].addEventListener('click', (e) => {
+          // check if TD have a value inside
           if (tds[i].innerHTML) {
             let dateToPass = e.target.innerHTML;
             if ((Number(dateToPass)) < 10) {
               dateToPass = '0' + dateToPass;
             } else {
-              dateToPass;
+              dateToPass = dateToPass;
             }
+            // set pickerValue to selected date
             this.pickerValue = dateToPass + '/' + monthToPass() + '/' + yearToPass;
             document.querySelector('input[name="datepicker"]').setAttribute('value', this.pickerValue);
-
             this.clearUI();
-            console.log(this.pickerValue);
           }
         });
       }
+    // if UI state is true, clearUI
     } else {
       this.clearUI();
     }
@@ -178,17 +183,19 @@ class DatePicker {
     this.state = false;
   }
 }
-
+// current year
 let year = new Date().getFullYear();
+// Current month
 let month = new Date().getMonth();
+// creating new DatePicker class and pass current year and month as arguments
 let n = new DatePicker(month, year, 1);
 
-// console.log(n.firstDayOfWeek);
+// initialize DatePicker on input click
 document.querySelector('input[name="datepicker"]').addEventListener('click', function() {
   n.init();
-
 });
 
+// adding event listener to submit button and alerts all the POST information
 document.querySelector('input[type="submit"]').addEventListener('click', function(e) {
   e.preventDefault();
   let textNode = '';
@@ -197,6 +204,3 @@ document.querySelector('input[type="submit"]').addEventListener('click', functio
   }
   alert(textNode);
 });
-
-
-// module.exports = new DatePicker();
