@@ -25,16 +25,17 @@ div#calendar {
 }
 
 td {
-  cursor: pointer;
-  &:hover {
-    background: lighten($th-color, 15%);
-  }
+
+
 }
 
 span#prev-month, span#next-month {
   display: inline-block;
   font-size: 22px;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.3);
+  }
 }
 
 span#prev-month {
@@ -49,7 +50,7 @@ span.today {
   position: relative;
   display: block;
   // background: lighten($th-color, 10%);
-  height: 40px;
+  height: 30px;
   width: 40px;
   &:after {
     content: 'TODAY';
@@ -102,17 +103,18 @@ table.calendar {
         width: 40px;
         height: 40px;
         text-align: center;
+        cursor: pointer;
         background: linear-gradient(-45deg, lighten($th-color, 20%), lighten($th-color, 30%));
         // background: lighten($th-color, 20%);
         &:nth-child(6), &:nth-child(7) {
           background: linear-gradient(-45deg, lighten($th-color, 15%), lighten($th-color, 22.5%));
           color: $white;
           &:hover {
-            background: lighten($th-color, 20%);
+
           }
         }
         &:hover {
-          background: lighten($th-color, 15%);
+          background: darken($th-color, 20%);
         }
       }
     }

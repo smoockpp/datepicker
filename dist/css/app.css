@@ -22,15 +22,12 @@ div#calendar {
   display: block;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7); }
 
-td {
-  cursor: pointer; }
-  td:hover {
-    background: #83b9ed; }
-
 span#prev-month, span#next-month {
   display: inline-block;
   font-size: 22px;
   cursor: pointer; }
+  span#prev-month:hover, span#next-month:hover {
+    transform: scale(1.3); }
 
 span#prev-month {
   float: left;
@@ -43,7 +40,7 @@ span#next-month {
 span.today {
   position: relative;
   display: block;
-  height: 40px;
+  height: 30px;
   width: 40px; }
   span.today:after {
     content: 'TODAY';
@@ -78,14 +75,13 @@ table.calendar {
       width: 40px;
       height: 40px;
       text-align: center;
+      cursor: pointer;
       background: linear-gradient(-45deg, #99c6f0, #c5dff7); }
       table.calendar tbody tr td:nth-child(6), table.calendar tbody tr td:nth-child(7) {
         background: linear-gradient(-45deg, #83b9ed, #a4ccf2);
         color: #fff; }
-        table.calendar tbody tr td:nth-child(6):hover, table.calendar tbody tr td:nth-child(7):hover {
-          background: #99c6f0; }
       table.calendar tbody tr td:hover {
-        background: #83b9ed; }
+        background: #1861a5; }
 
 .wrapper {
   width: 100vw;

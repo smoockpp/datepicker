@@ -129,7 +129,7 @@ class DatePicker {
           <thead>
             <tr class="table-header">
               <th colspan="7">
-              <span id='prev-month' onClick="n.prevMonth()">&#8630;</span><span class="month-year">${this.month} &nbsp; ${this.year}</span><span id='next-month' onClick="n.nextMonth()">&#8631;</span>
+              <span id='prev-month' onClick="n.prevMonth()">&#10094;</span><span class="month-year">${this.month} &nbsp; ${this.year}</span><span id='next-month' onClick="n.nextMonth()">&#10095;</span>
               </th>
             </tr>
             <tr class="weekdays">${weekDaysTd()}</tr>
