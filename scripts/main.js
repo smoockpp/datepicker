@@ -202,5 +202,6 @@ document.querySelector('input[type="submit"]').addEventListener('click', functio
   for (const item of Object.keys(e.target.form)) {
     textNode += e.target.form[item].name + ' ' + e.target.form[item].value + '\n';
   }
+  
   alert(textNode);
 });
