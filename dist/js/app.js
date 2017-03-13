@@ -198,41 +198,51 @@ var year = new Date().getFullYear();
 // Current month
 var month = new Date().getMonth();
 // creating new DatePicker class and pass current year and month as arguments
-var n = new DatePicker(month, year, 1);
+var datepicker = new DatePicker(month, year, 1);
 
 // initialize DatePicker on input click
 document.querySelector('input[name="datepicker"]').addEventListener('click', function () {
-  n.init();
+  datepicker.init();
 });
 
 // adding event listener to submit button and alerts all the POST information
 document.querySelector('input[type="submit"]').addEventListener('click', function (e) {
   e.preventDefault();
-  var textNode = '';
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+  // Validation of form
+  var destination = document.getElementById('destination').selectedIndex;
+  var date = document.getElementById('datepicker').getAttribute('value');
+  var duration = document.getElementById('duration').selectedIndex;
+  var adults = document.getElementById('adults').selectedIndex;
+  var children = document.getElementById('children').selectedIndex;
+  if (destination == 0 || date == '' || duration == 0 || adults == 0 || children == 0) {
+    alert('Please fill in all the fields.');
+  } else {
+    var textNode = '';
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
 
-  try {
-    for (var _iterator = Object.keys(e.target.form)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var item = _step.value;
-
-      textNode += e.target.form[item].name + ' ' + e.target.form[item].value + '\n';
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
     try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
+      for (var _iterator = Object.keys(e.target.form)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var item = _step.value;
+
+        textNode += e.target.form[item].name + ' ' + e.target.form[item].value + '\n';
       }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
     } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
       }
     }
-  }
 
-  alert(textNode);
+    alert(textNode);
+  }
 });

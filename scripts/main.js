@@ -188,20 +188,30 @@ let year = new Date().getFullYear();
 // Current month
 let month = new Date().getMonth();
 // creating new DatePicker class and pass current year and month as arguments
-let n = new DatePicker(month, year, 1);
+let datepicker = new DatePicker(month, year, 1);
 
 // initialize DatePicker on input click
 document.querySelector('input[name="datepicker"]').addEventListener('click', function() {
-  n.init();
+  datepicker.init();
 });
 
 // adding event listener to submit button and alerts all the POST information
 document.querySelector('input[type="submit"]').addEventListener('click', function(e) {
   e.preventDefault();
-  let textNode = '';
-  for (const item of Object.keys(e.target.form)) {
-    textNode += e.target.form[item].name + ' ' + e.target.form[item].value + '\n';
+  // Validation of form
+  const destination = document.getElementById('destination').selectedIndex;
+  const date = document.getElementById('datepicker').getAttribute('value');
+  const duration = document.getElementById('duration').selectedIndex;
+  const adults = document.getElementById('adults').selectedIndex;
+  const children = document.getElementById('children').selectedIndex;
+  if ( destination == 0 || date == '' || duration == 0 || adults == 0 || children == 0) {
+    alert('Please fill in all the fields.')
+  } else {
+    let textNode = '';
+    for (const item of Object.keys(e.target.form)) {
+      textNode += e.target.form[item].name + ' ' + e.target.form[item].value + '\n';
+    }
+    alert(textNode);
   }
-  
-  alert(textNode);
+
 });
