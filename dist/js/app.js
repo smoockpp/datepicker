@@ -137,7 +137,7 @@ var DatePicker = function () {
             }
             return html;
           };
-          _this2.html = '\n        <table Class="calendar">\n          <thead>\n            <tr class="table-header">\n              <th colspan="7">\n              <span id=\'prev-month\' onClick="n.prevMonth()">&#10094;</span><span class="month-year">' + _this2.month + ' &nbsp; ' + _this2.year + '</span><span id=\'next-month\' onClick="n.nextMonth()">&#10095;</span>\n              </th>\n            </tr>\n            <tr class="weekdays">' + weekDaysTd() + '</tr>\n          </thead>\n          <tbody>' + daysRows() + '</tbody>\n        </table>\n      ';
+          _this2.html = '\n        <table Class="calendar">\n          <thead>\n            <tr class="table-header">\n              <th colspan="7">\n              <span id=\'prev-month\' onClick="datepicker.prevMonth()">&#10094;</span><span class="month-year">' + _this2.month + ' &nbsp; ' + _this2.year + '</span><span id=\'next-month\' onClick="datepicker.nextMonth()">&#10095;</span>\n              </th>\n            </tr>\n            <tr class="weekdays">' + weekDaysTd() + '</tr>\n          </thead>\n          <tbody>' + daysRows() + '</tbody>\n        </table>\n      ';
           var calendarDiv = document.getElementById('calendar');
           calendarDiv.innerHTML += '\n        <div>\n          ' + _this2.html + '\n        </div>\n      ';
           _this2.state = true;
